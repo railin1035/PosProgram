@@ -230,11 +230,13 @@ class SalePanel extends JFrame implements ActionListener {
 		nums[10].setFont(new Font("맑은 고딕", Font.PLAIN, 30));
 		nums[10].setBackground(Color.WHITE);
 		nums[10].setBorder(BorderFactory.createMatteBorder(1, 0, 1, 1, Color.GRAY));
+		nums[10].addActionListener(this);
 		keyPan.add(nums[10]);
 		nums[11] = new JButton("Del");
 		nums[11].setFont(new Font("맑은 고딕", Font.PLAIN, 30));
 		nums[11].setBackground(Color.WHITE);
 		nums[11].setBorder(BorderFactory.createMatteBorder(1, 0, 1, 1, Color.GRAY));
+		nums[11].addActionListener(this);
 		keyPan.add(nums[11]);
 		
 		rbCalPan.add(keyPan,BorderLayout.CENTER);
@@ -396,7 +398,12 @@ class SalePanel extends JFrame implements ActionListener {
 			}
 		}
 		
-		
+		if(e.getSource()==nums[11]) {
+			if(fullText.length()>0) {
+				fullText = fullText.substring(0,fullText.length()-1);
+				tf.setText(fullText);
+			}
+		}
 	}
 
 }
