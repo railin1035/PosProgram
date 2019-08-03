@@ -1,0 +1,57 @@
+create database tinypos;
+
+create table Market (
+mId varchar(50) primary key,
+cName varchar(100) not null,
+mName varchar(100) not null,
+mNum varchar(50),
+mMaster varchar(20),
+mAddr varchar(100),
+mCall varchar(30),
+mEtc text
+);
+
+
+Insert into Market values ("m01", "Tiny Coffee", "인천폴리텍", "123456789000", "함이슬", "인천시 부평구 무네미로", "032-000-0000", "테스트");
+
+
+delete from Market;
+
+select * from Market;
+
+
+
+
+create table Product (
+pId Int primary key,
+mId varchar(50) not null,
+pName varchar(100) not null,
+pPrice int not null
+);
+
+Insert into Product values (1, "m01", "아메리카노(HOT)", 2500);
+Insert into Product values (2, "m01", "아메리카노(ICE)", 2500);
+Insert into Product values (3, "m01", "카페라떼(HOT)", 3000);
+Insert into Product values (4, "m01", "카페라떼(ICE)", 3000);
+Insert into Product values (5, "m01", "카페모카(HOT)", 3500);
+Insert into Product values (6, "m01", "카페모카(ICE)", 3500);
+Insert into Product values (7, "m01", "바닐라라떼(HOT)", 3500);
+Insert into Product values (8, "m01", "바닐라라떼(ICE)", 3500);
+Insert into Product values (9, "m01", "마끼아또(HOT)", 3500);
+Insert into Product values (10, "m01","마끼아또(ICE)", 3500);
+
+
+
+create table Cart (
+cId int primary key,
+total int
+);
+
+
+create table Cart_Detail (
+oId int primary key,
+cId int not null,
+pId int not null,
+amount int not null default 1,
+cost int not null default 0
+);
